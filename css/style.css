@@ -1,0 +1,705 @@
+/* =========初始化样式============================================================================================ */
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
+
+body,h1,h2,h3,h4,p,ul,ol{
+    margin: 0;
+    padding: 0;
+    font: 14px "微软雅黑";
+}
+
+img{
+    border: 0;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:active{
+    color: #009ee0;
+}
+/* =========公用样式============================================================================================ */
+#main{
+    height: 100%;
+    height: 100%;
+}
+
+.commontTitle{
+    color: #009ee0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.commontText{
+    color: #fff;
+    line-height: 1.6;
+    font-size: 16px;
+}
+/* =========加载页面============================================================================================ */
+#loading div{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    background: #009ee9;
+    z-index: 998;
+    transition: all 1s;
+}
+
+#loading div:nth-of-type(1){
+    top: 0;
+}
+
+#loading div:nth-of-type(2){
+    bottom: 0;
+}
+
+#loading span{
+    width: 0;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: 2px;
+    z-index: 999;
+    transition: all 1s;
+}
+/* =========导航条样式============================================================================================ */
+#header{
+    width: 100%;
+    height: 80px;
+    background: #fff;
+}
+
+#headerMain{
+    width: 1100px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#logo{
+    float: left;
+    margin-top: 30px;
+}
+
+#nav{
+    float: right;
+    margin-top: 50px;
+}
+
+#nav li{
+    float: left;
+    position: relative;
+    margin-left: 40px;
+
+}
+
+#nav li .up{
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #000;
+    width: 0;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+#nav li:hover .up{
+    width: 100%;
+}
+
+#arrow{
+    width: 21px;
+    height: 11px;
+    background: url(../images/arrow.png);
+    position: absolute;
+    bottom: -11px;
+    transition: left .5s;
+    z-index: 1;
+}
+
+#music{
+    width: 14px;
+    height: 14px;
+    background: url(../images/musicoff.gif) no-repeat;
+    float: left;
+    margin: 55px 0 0 5px;
+    cursor: pointer;
+}
+/* =========滚屏样式============================================================================================ */
+#content{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#list{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s top;
+}
+
+#list .liList{
+    width: 2000px;
+    position: relative;
+    left: 50%;
+    margin-left: -1000px;
+    /* overflow：hidden；让里面的盒子设置margin-top之后，外面的盒子不被顶下来 */
+    overflow: hidden;
+}
+
+#list .divList{
+    width: 1100px;
+    height: 520px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#menu{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -80px;
+    z-index: 1;
+}
+
+#menu li{
+    width: 40px;
+    height: 40px;
+    background: url(../images/menu.png);
+    margin: 20px 15px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all .5s;
+}
+
+#menu li.active{
+    opacity: 1;
+    cursor: default;
+}
+/* =========第一屏样式============================================================================================ */
+#home{
+    background: url(../images/bg1.jpg) no-repeat;
+}
+
+#homeContent{
+    /* overflow: hidden; */
+}
+
+#homeContent .homeContent1{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: all 1s;
+}
+
+#homeContent .homeContent1 li{
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+#homeContent .homeContent1 li.active{
+    visibility: visible;
+}
+
+#homeContent .homeContent2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transition: all 1s;
+}
+
+#homeContent .homeContent2 li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    display: inline-block;
+    box-shadow: 0 0 4px rgba(255,255,255,.5);
+    margin: 4px;
+    cursor: pointer;
+}
+
+#homeContent .homeContent2 li.active{
+    background: #fff;
+    cursor: default;
+}
+
+#homeContent .homeContent1 .rightShow{
+    animation: homeRightShow 1s;
+    -webkit-animation: homeRightShow 1s;
+    visibility: visible;
+}
+
+#homeContent .homeContent1 .leftHide{
+    animation: homeLeftHide 1s;
+    -webkit-animation: homeLeftHide 1s;
+    visibility: hidden;
+}
+
+#homeContent .homeContent1 .leftShow{
+    animation: homeLeftShow 1s;
+    -webkit-animation: homeLeftShow 1s;
+    visibility: visible;
+}
+
+#homeContent .homeContent1 .rightHide{
+    animation: homeRightHide 1s;
+    -webkit-animation: homeRightHide 1s;
+    visibility: hidden;
+}
+
+@keyframes homeRightShow{
+    0%{
+        transform: translateZ(-200px);
+    }
+    40%{
+        transform: translateX(40%) scale(0.8) rotateY(-20deg);
+    }
+    100%{
+        transform: translateZ(0px);
+    }
+}
+
+@-webkit-keyframes homeRightShow{
+    0%{
+        -webkit-transform: translateZ(-200px);
+    }
+    40%{
+        -webkit-transform: translateX(40%) scale(0.8) rotateY(-20deg);
+    }
+    100%{
+        -webkit-transform: translateZ(0px);
+    }
+}
+
+@keyframes homeLeftHide {
+    0%{
+        transform: translateZ(0px);
+        visibility: visible;
+    }
+    40%{
+        transform: translateX(-40%) scale(0.8) rotateY(20deg);
+    }
+    100%{
+        transform: translateZ(-200px);
+    }
+}
+
+@-webkit-keyframes homeLeftHide {
+    0%{
+        -webkit-transform: translateZ(0px);
+        visibility: visible;
+    }
+    40%{
+        -webkit-transform: translateX(-40%) scale(0.8) rotateY(20deg);
+    }
+    100%{
+        -webkit-transform: translateZ(-200px);
+    }
+}
+
+@keyframes homeLeftShow{
+    0%{
+        transform: translateZ(-200px);
+    }
+    40%{
+        transform: translateX(-40%) scale(0.8) rotateY(20deg);
+    }
+    100%{
+        transform: translateZ(0px);
+    }
+}
+
+@-webkit-keyframes homeLeftShow{
+    0%{
+        -webkit-transform: translateZ(-200px);
+    }
+    40%{
+        -webkit-transform: translateX(-40%) scale(0.8) rotateY(20deg);
+    }
+    100%{
+        -webkit-transform: translateZ(0px);
+    }
+}
+
+@keyframes homeRightHide{
+    0%{
+        transform: translateZ(0px);
+        visibility: visible;
+    }
+    40%{
+        transform: translateX(40%) scale(0.8) rotateY(-20deg);
+    }
+    100%{
+        transform: translateZ(-200px);
+    }
+}
+
+@-webkit-keyframes homeRightHide{
+    0%{
+        -webkit-transform: translateZ(0px);
+        visibility: visible;
+    }
+    40%{
+        -webkit-transform: translateX(40%) scale(0.8) rotateY(-20deg);
+    }
+    100%{
+        -webkit-transform: translateZ(-200px);
+    }
+}
+/* =========第二屏样式============================================================================================ */
+#reward{
+    background: url(../images/bg2.jpg) no-repeat;
+}
+
+#reward .rewardContent1{
+    position: absolute;
+    left: -40px;
+    top: 130px;
+    z-index: 1
+}
+
+#reward .rewardContent2{
+    width: 170px;
+    padding-left: 20px;
+    position: absolute;
+    left: -20px;
+    top: 190px;
+    z-index: 1;
+}
+
+#reward .commontText{
+    color: rgba(0,0,0,.8);
+    font-weight: bold;
+}
+
+#reward .rewardContent3{
+    width: 950px;
+    position: absolute;
+    left: 200px;
+    top: 0;
+    margin-top: 60px;
+}
+
+#reward .rewardLine{
+    width: 9px;
+    height: 600px;
+    background: url(../images/cross.png) no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    margin-left: -250px;
+}
+
+#reward .rewardLogo{
+    width: 160px;
+    height: 200px;
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+}
+
+#reward .rewardBefore{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 1s;
+
+}
+
+#reward .rewardAfter{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center center;
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 1s;
+
+}
+
+#reward .rewardLogo:hover .rewardBefore{
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+#reward .rewardLogo:hover .rewardAfter{
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+
+#reward .sabre1{
+    width: 350px;
+    height: 350px;
+    background: url(../images/sabre.png) no-repeat;
+    position: absolute;
+    left: -150px;
+    top: 30px;
+    transform: rotate(30deg);
+    transition: all 1s;
+}
+
+#reward .sabre2{
+    width: 350px;
+    height: 350px;
+    background: url(../images/sabre.png) no-repeat;
+    position: absolute;
+    top: 30px;
+    left: -90px;
+    transform: rotate(75deg);
+    transition: all 1s;
+}
+
+
+
+/* =========第三屏样式============================================================================================ */
+#works{
+    background: url(../images/bg3.jpg) no-repeat;
+}
+
+#worksContent{
+    overflow: hidden;
+}
+
+#worksContent .sea1{
+    width: 1100px;
+    height: 240px;
+    background: url(../images/sea.png);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#worksContent .sea2{
+    width: 1100px;
+    height: 240px;
+    background: url(../images/sea.png);
+    position: absolute;
+    left: -1100px;
+    bottom: 0;
+}
+
+#worksContent .worksContent1{
+    width: 200px;
+    height: 300px;
+    background: url(../images/boat.png);
+    position: absolute;
+    left: 900px;
+    bottom: 35%;
+    z-index: 1;
+    animation: worksMove 30s linear infinite;
+    -webkit-animation: worksMove 30s linear infinite;
+}
+
+@keyframes worksMove{
+    0%{}
+    49%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        left:0;
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+@-webkit-keyframes worksMove{
+    0%{}
+    49%{
+        -webkit-transform: rotateY(0deg);
+    }
+    50%{
+        left:0;
+        -webkit-transform: rotateY(180deg);
+    }
+    100%{
+        -webkit-transform: rotateY(180deg);
+    }
+}
+
+#works .plane1{
+    width: 359px;
+    height: 283px;
+    background: url("../images/plane1.png") no-repeat;
+    position: absolute;
+    left: 650px;
+    top: 0;
+    transition: all 1s;
+}
+
+#works .plane2{
+    width: 309px;
+    height: 249px;
+    background: url("../images/plane2.png") no-repeat;
+    position: absolute;
+    left: 50px;
+    top: 70px;
+    transition: all 1s;
+}
+
+/* =========第四屏样式============================================================================================ */
+#about{
+    background: url(../images/bg4.jpg) no-repeat;
+}
+
+#about .blueLine{
+    width: 357px;
+    height: 998px;
+    background: url(../images/blueLine.png) no-repeat;
+    position: absolute;
+    top: -10%;
+}
+
+#about .blueLine:first-of-type{
+    left:30%;
+}
+
+#about .blueLine:nth-of-type(2){
+    left: 50%;
+}
+
+#aboutContent .aboutImg{
+    position: absolute;
+    width: 260px;
+    height: 200px;
+    border: 5px solid rgba(255,255,255,.5);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 1s;
+}
+
+#aboutContent .aboutImg:nth-of-type(1){
+    left: 15%;
+    top: 50px;
+}
+
+#aboutContent .aboutImg:nth-of-type(2){
+    left: 10%;
+    top: 300px;
+}
+
+#aboutContent .aboutImg:nth-of-type(3){
+    left: 65%;
+    top: 50px;
+}
+
+#aboutContent .aboutImg:nth-of-type(4){
+    left: 55%;
+    top: 300px;
+}
+
+#aboutContent .aboutImg span{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(1.5);
+    transition: all .5s;
+}
+
+#aboutContent .aboutImg ul{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+#aboutContent .aboutImg ul li{
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+#aboutContent .aboutImg ul img{
+    position: absolute;
+    transition: all .5s;
+}
+/* =========第五屏样式============================================================================================ */
+#team{
+    background: url(../images/bg5.jpg) no-repeat;
+}
+
+#team .teamContent1{
+    position: absolute;
+    top: 65px;
+    left: 20%;
+    float: left;
+    width: 400px;
+    transition: all 1s;
+}
+
+#team .teamContent1 h1{
+    text-indent: 1em;
+    font-size: 36px;
+}
+
+#team .teamContent2{
+    position: absolute;
+    left: 50%;
+    float: left;
+    width: 400px;
+    text-indent: 2em;
+    transition: all 1s;
+}
+
+#team .teamContent3{
+    position: absolute;
+    left: 50%;
+    margin-left: -475px;
+    bottom: 0px;
+    width: 950px;
+}
+
+#team .teamContent3 li{
+    height: 361px;
+    background: url(../images/focus.png) no-repeat;
+    float: left;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#canvasBubble{
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
